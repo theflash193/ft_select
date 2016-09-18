@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/18 06:00:02 by grass-kw          #+#    #+#             */
-/*   Updated: 2016/09/18 06:07:23 by grass-kw         ###   ########.fr       */
+/*   Updated: 2016/09/18 06:40:33 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	delete_selection(void *content, size_t content_size)
 {
+	t_select	*data;
+
+	data = (t_select *)content;
+	free(data->content);
 	free(content);
 	content_size = 0;
 }

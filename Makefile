@@ -6,7 +6,7 @@
 #    By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/10 11:39:32 by grass-kw          #+#    #+#              #
-#    Updated: 2016/09/18 06:08:17 by grass-kw         ###   ########.fr        #
+#    Updated: 2016/09/18 09:27:02 by grass-kw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,9 +36,9 @@ POBJ	:= $(addprefix $(DIROBJ)/, $(OBJ))
 ### COMPILATION VARIABLES ###
 CC	:= gcc
 ifeq ($(DEBUG),yes)
-	C_FLAG	:= -Wall -Werror -Wextra -g
+	C_FLAG	:= -Wall -Werror -Wextra -g -ltermcap
 else
-	C_FLAG	:= -Wall -Werror -Wextra
+	C_FLAG	:= -Wall -Werror -Wextra -ltermcap
 endif
 
 C_INC	:= -I $(DIRINC)  -I $(DIRFT)/includes -I $(DIRCLST)/includes

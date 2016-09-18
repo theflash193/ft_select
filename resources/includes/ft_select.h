@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:53:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2016/09/18 07:22:05 by grass-kw         ###   ########.fr       */
+/*   Updated: 2016/09/18 09:40:28 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include "clst.h"
 # include <stdio.h>
 # include <stdlib.h>
+# include <curses.h>
+# include <term.h>
+# include <termios.h>
+#include <sys/ioctl.h>
 # define SELECT(a) *(t_select *)(a)
 
 typedef struct	s_env

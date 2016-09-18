@@ -1,4 +1,4 @@
-MAIN	:= main.c parser.c\
+MAIN	:= main.c parser.c cursor_next.c cursor_prev.c \
 
 OBJ		:= $(OBJ) $(MAIN:.c=.o)
 

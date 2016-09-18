@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_env.c                                        :+:      :+:    :+:   */
+/*   cursor_next.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/18 06:00:02 by grass-kw          #+#    #+#             */
-/*   Updated: 2016/09/18 07:00:03 by grass-kw         ###   ########.fr       */
+/*   Created: 2016/09/18 07:15:38 by grass-kw          #+#    #+#             */
+/*   Updated: 2016/09/18 07:17:27 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void	delete_selection(void *content, size_t content_size)
+void	cursor_next(t_env *e)
 {
-	t_select	*data;
+	t_select	*current;
+	t_select	*next;
 
-	data = (t_select *)content;
-	free(data->content);
-	free(content);
-	content_size = 0;
-}
-
-void	clear_env(t_env *e)
-{
-	if (e->liste_selection != NULL)
-		clst_del(&(e->liste_selection), delete_selection);
+	current = (t_select *)e->current;
+	next = (t_select *)e->current->next;
+	current->current = 0;
+	next->current = 1;
+	e->current = e->current->next;
 }

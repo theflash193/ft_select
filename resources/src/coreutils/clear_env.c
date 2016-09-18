@@ -1,0 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   clear_env.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/18 06:00:02 by grass-kw          #+#    #+#             */
+/*   Updated: 2016/09/18 06:07:23 by grass-kw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_select.h"
+
+void	delete_selection(void *content, size_t content_size)
+{
+	free(content);
+	content_size = 0;
+}
+
+void	clear_env(t_env *e)
+{
+	if (e->liste_selection != NULL)
+		clst_del(&(e->liste_selection), delete_selection);
+}

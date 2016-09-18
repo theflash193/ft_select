@@ -1,4 +1,4 @@
-MAIN	:= clear_env.c \
+MAIN	:= clear_env.c print_select.c \
 
 OBJ		:= $(OBJ) $(MAIN:.c=.o)
 

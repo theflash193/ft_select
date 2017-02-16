@@ -41,7 +41,7 @@ void	set_terminal(t_env *e)
 
 	tcgetattr(e->fildes, &(e->p));/*
 	e->p.c_lflag &= ~(ICANON); // Met le terminal en mode canonique.
-	e->p.c_lflag &= ~(ECHO); // les touches tapÃ©es ne s'inscriront plus dans le terminal
+	e->p.c_lflag &= ~(ECHO); // les touches tapées ne s'inscriront plus dans le terminal
 	e->p.c_cc[VMIN] = 1;
 	e->p.c_cc[VTIME] = 0;*/
 	// On applique les changements :
@@ -103,6 +103,7 @@ int main(int ac, char **av)
 }
 int main(int ac, char **av)
 {
+  char *tty_name;
   
 	if (ac == 1)
     		return (-1);
@@ -110,5 +111,7 @@ int main(int ac, char **av)
 		ft_putendl("fail to get ttyname");
 	else
 		ft_putendl(tty_name);
+	open(av[1]);
+
     return (0);
 }

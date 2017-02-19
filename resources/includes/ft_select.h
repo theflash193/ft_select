@@ -46,5 +46,17 @@ void			print_select(t_env *e);
 void			loop(t_env *e);
 void			cursor_next(t_env *e);
 void			cursor_prev(t_env *e);
-
+int			cp_string(char *id);
+int			underline_on(void);
+int			underline_off(void);
+void			clear_window(void);
+void			affichage_element(t_select *elem);
+void			affichage_selection(t_env *e);
+void			putstr_fd(const char *s, int fd);
+int			putchar_fd(char c, int fd);
+int			putendl_fd(char const *s, int fd);
+void			sputchar(char c);
+int			set_terminal(t_env *e);
+int 			configure_select_termios(t_env *e);
+void			reset_terminal(t_env *e);
 #endif

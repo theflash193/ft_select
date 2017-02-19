@@ -1,0 +1,6 @@
+#include "ft_select.h"
+
+void affichage_selection(t_env *e)
+{
+
+}

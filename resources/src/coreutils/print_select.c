@@ -17,7 +17,7 @@ void	print_data(t_clst *alst)
 	t_select *data;
 
 	data = (t_select *)alst->content;
-	printf("=>content[%s], current[%d]\n", data->content, data->current);
+	affichage_element(data);
 }
 
 void	print_select(t_env *e)

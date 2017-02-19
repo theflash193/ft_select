@@ -26,10 +26,10 @@ typedef struct	s_env
 {
 	t_clst		*liste_selection;
 	t_clst		*current_elem;
-  	struct termios	p;
+  	struct termios	*termios;
+ 	struct termios	*default_termios;
 	char		term_buffer[2048];
 	char		*term_type;
-	int		fildes;
 }				t_env;
 
 typedef struct	s_select

@@ -24,12 +24,15 @@
 
 typedef struct	s_env
 {
-	t_clst		*liste_selection;
-	t_clst		*current_elem;
-  	struct termios	*termios;
+	t_clst			*liste_selection;
+	t_clst			*current_elem;
+	struct termios	*termios;
  	struct termios	*default_termios;
-	char		term_buffer[2048];
-	char		*term_type;
+	char			*term_type;
+
+	struct winsize	win_size;
+	unsigned short	line;
+	unsigned short	colonne;
 }				t_env;
 
 typedef struct	s_select
@@ -46,17 +49,19 @@ void			print_select(t_env *e);
 void			loop(t_env *e);
 void			cursor_next(t_env *e);
 void			cursor_prev(t_env *e);
-int			cp_string(char *id);
-int			underline_on(void);
-int			underline_off(void);
-void			clear_window(void);
+int				cp_string(char *id);
+int				underline_on(void);
+int				underline_off(void);
+void			clear_window(t_env *e);
 void			affichage_element(t_select *elem);
 void			affichage_selection(t_env *e);
 void			putstr_fd(const char *s, int fd);
-int			putchar_fd(char c, int fd);
-int			putendl_fd(char const *s, int fd);
+int				putchar_fd(char c, int fd);
+int				putendl_fd(char const *s, int fd);
 void			sputchar(char c);
-int			set_terminal(t_env *e);
+int				set_terminal(t_env *e);
 int 			configure_select_termios(t_env *e);
 void			reset_terminal(t_env *e);
+int				get_terminal_dimension(t_env *e);
+
 #endif

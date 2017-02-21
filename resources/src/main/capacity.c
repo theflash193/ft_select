@@ -2,13 +2,13 @@
 
 int	cp_string(char *id)
 {
-    char *str;
+	char *str;
 
-    if ((str = tgetstr(id, NULL)) == NULL)
-      return (-1);
-    else
-    	tputs(str, 1, putchar);
-    return (0);
+	if ((str = tgetstr(id, NULL)) == NULL)
+		return (-1);
+	else
+		putstr_fd(str, 1);
+	return (0);
 }
 
 int	underline_on(void)
@@ -21,9 +21,12 @@ int	underline_off()
 	return (cp_string("ue"));
 }
 
-
-void	clear_window(void)
+void	clear_window(t_env *e)
 {
-	cp_string("cl");
+	unsigned short i;
+
+	i = 0;
 	tputs(tgoto("cm", 0, 0), 0, putchar);
+	while (i++ < e->line)
+		cp_string("dl");
 }

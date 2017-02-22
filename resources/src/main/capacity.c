@@ -7,7 +7,7 @@ int	cp_string(char *id)
 	if ((str = tgetstr(id, NULL)) == NULL)
 		return (-1);
 	else
-		putstr_fd(str, 1);
+		tputs(str, 1, sputchar);
 	return (0);
 }
 
@@ -36,6 +36,7 @@ void	refresh_window()
 {
 	cp_string("cl");
 }
+
 void	clear_window(t_env *e)
 {
 	unsigned short i;

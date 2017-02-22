@@ -54,7 +54,7 @@ void			print_select(t_env *e);
 void			putstr_fd(const char *s, int fd);
 int				putchar_fd(char c, int fd);
 int				putendl_fd(char const *s, int fd);
-int				sputchar(char c);
+int				sputchar(int c);
 
 /* termios */
 int 			configure_select_termios(t_env *e);
@@ -69,6 +69,7 @@ int				underline_off(void);
 void			clear_window(t_env *e);
 int				invisible_cursor(void);
 int				normal_cursor(void);
+void			refresh_window();
 
 /* loop */
 void			loop(t_env *e);

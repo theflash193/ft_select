@@ -14,14 +14,7 @@
 
 void	putstr_fd(const char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+	write(fd, s, ft_strlen(s));
 }
 
 int	putchar_fd(char c, int fd)
@@ -38,7 +31,7 @@ int	putendl_fd(char const *s, int fd)
 	return (0);
 }
 
-int	sputchar(char c)
+int	sputchar(int c)
 {
 	write(1, &c, 1);
 	return (0);

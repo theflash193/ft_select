@@ -6,7 +6,6 @@ void	affichage_element(t_select *elem)
 	if (elem->current == 1)
 		underline_on();
 	putstr_fd(elem->content, 1);
- 	putchar_fd(' ', 1);
 	if (elem->current == 1)
 		underline_off();
 	putchar_fd(' ', 1);

@@ -19,7 +19,7 @@ void	loop(t_env *e)
 	while (42)
 	{
 		clear_window(e);//clear_window
-		//affichage_selection(e);//affichage de la liste
+		affichage_selection(e);//affichage de la liste
 		//attente lecture utilisateur
 		read(0, &buff, 3);
 		buff[3] = '\0';

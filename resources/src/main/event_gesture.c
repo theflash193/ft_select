@@ -35,7 +35,7 @@ t_clst	*find_next(t_clst *alst)
 	return (NULL);
 }
 
-void	event_select(t_env *e)
+void	selected(t_env *e)
 {
 	t_select	*current;
 	t_select	*tmp;
@@ -50,6 +50,25 @@ void	event_select(t_env *e)
 		current->current = 0;
 		e->current_elem = next;
 	}
+}
+
+void	disable_seleted(t_env *e)
+{
+	t_select	*current;
+
+	current = e->current_elem->content;
+	current->selected = 0;
+}
+
+void	event_select(t_env *e)
+{
+	t_select	*current;
+
+	current = e->current_elem->content;
+	if (current->selected == 0)
+		selected(e);
+	else
+		disable_seleted(e);
 }
 
 int 	event_gesture(t_env *e, char *s)

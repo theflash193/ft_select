@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cursor_next.c                                      :+:      :+:    :+:   */
+/*   cursor_prev.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/18 07:15:38 by grass-kw          #+#    #+#             */
-/*   Updated: 2016/09/18 09:20:55 by grass-kw         ###   ########.fr       */
+/*   Created: 2016/09/18 07:01:34 by grass-kw          #+#    #+#             */
+/*   Updated: 2016/09/18 09:21:17 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void	cursor_next(t_env *e)
+void	cursor_prev(t_env *e)
 {
 	t_select	*current;
-	t_select	*next;
+	t_select	*prev;
 
-	current = (t_select *)e->current_elem->content;
-	next = (t_select *)e->current_elem->next->content;
+	current = (t_select *)e->current_elem;
+	prev = (t_select *)e->current_elem->prev;
 	current->current = 0;
-	next->current = 1;
-	e->current_elem = e->current_elem->next;
+	prev->current = 1;
+	e->current_elem = e->current_elem->prev;
 }

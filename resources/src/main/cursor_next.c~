@@ -17,8 +17,8 @@ void	cursor_next(t_env *e)
 	t_select	*current;
 	t_select	*next;
 
-	current = (t_select *)e->current_elem->content;
-	next = (t_select *)e->current_elem->next->content;
+	current = (t_select *)e->current_elem;
+	next = (t_select *)e->current_elem->next;
 	current->current = 0;
 	next->current = 1;
 	e->current_elem = e->current_elem->next;

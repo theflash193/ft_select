@@ -85,5 +85,10 @@ void			cursor_prev(t_env *e);
 
 int				set_terminal(t_env *e);
 
+/* event_gesture */
+int			event_gesture(t_env *e, char *s);
+void	event_quit(t_env *e);
+void	event_left(t_env *e);
+void	event_right(t_env *e);
 
 #endif

@@ -23,11 +23,8 @@ void	loop(t_env *e)
 		//attente lecture utilisateur
 		read(0, &buff, 3);
 		buff[3] = '\0';
-		if (buff[0] == 'd')
-		{
-				reset_terminal(e);
-				break ;
-		}
+		if (event_gesture(e, buff) == -1)
+			break ;
 	//gestion evenement touche utilisateur
 	}
 }

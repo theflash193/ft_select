@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cursor_next.c                                      :+:      :+:    :+:   */
+/*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/18 07:15:38 by grass-kw          #+#    #+#             */
-/*   Updated: 2016/09/18 09:20:55 by grass-kw         ###   ########.fr       */
+/*   Created: 2016/09/18 07:19:37 by grass-kw          #+#    #+#             */
+/*   Updated: 2016/09/18 07:20:17 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void	cursor_next(t_env *e)
+void	loop(t_env *e)
 {
-	t_select	*current;
-	t_select	*next;
+	char	buff[4];
 
-	current = (t_select *)e->current_elem->content;
-	next = (t_select *)e->current_elem->next->content;
-	current->current = 0;
-	next->current = 1;
-	e->current_elem = e->current_elem->next;
+	while (42)
+	{
+		clear_window(e);//clear_window
+		affichage_selection(e);//affichage de la liste
+		//attente lecture utilisateur
+		read(0, &buff, 3);
+		buff[3] = '\0';
+		event_gesture(e, &buff);
+	//gestion evenement touche utilisateur
+	}
 }

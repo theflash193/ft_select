@@ -40,4 +40,3 @@ void	parser(t_env *e, int ac, char **av)
 	}
 	e->current_elem = e->liste_selection;
 }
-

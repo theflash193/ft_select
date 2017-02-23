@@ -94,5 +94,5 @@ void	event_quit(t_env *e);
 void	event_left(t_env *e);
 void	event_right(t_env *e);
 void	event_select(t_env *e);
-t_select	*find_next(t_clst *alst);
+t_clst	*find_next(t_clst *alst);
 #endif

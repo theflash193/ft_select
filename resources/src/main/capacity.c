@@ -21,7 +21,6 @@ int	underline_off()
 	return (cp_string("ue"));
 }
 
-
 int		invisible_cursor(void)
 {
 	return (cp_string("vi"));
@@ -37,6 +36,15 @@ void	refresh_window()
 	cp_string("cl");
 }
 
+void	cancel_mode()
+{
+	cp_string("me");
+}
+
+void	reverse_video()
+{
+	cp_string("mr");
+}
 void	clear_window(t_env *e)
 {
 	unsigned short i;

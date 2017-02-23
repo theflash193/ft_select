@@ -39,6 +39,7 @@ typedef struct	s_select
 {
 	char		*content;
 	int			current;
+	int			selected;
 }				t_select;
 
 /* parser */
@@ -69,7 +70,9 @@ int				underline_off(void);
 void			clear_window(t_env *e);
 int				invisible_cursor(void);
 int				normal_cursor(void);
-void			refresh_window();
+void			refresh_window(void);
+void			reverse_video(void);
+void			cancel_mode(void);
 
 /* loop */
 void			loop(t_env *e);
@@ -90,5 +93,6 @@ int			event_gesture(t_env *e, char *s);
 void	event_quit(t_env *e);
 void	event_left(t_env *e);
 void	event_right(t_env *e);
-
+void	event_select(t_env *e);
+t_select	*find_next(t_clst *alst);
 #endif

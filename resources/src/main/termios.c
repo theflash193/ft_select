@@ -55,7 +55,6 @@ void	reset_terminal(t_env *e)
 	clear_env(e);
 	if (tcsetattr(0, 0, e->default_termios) == -1)
 		putendl_fd("fail to connect termios", 1);
-
 }
 
 int	get_terminal_dimension(t_env *e)

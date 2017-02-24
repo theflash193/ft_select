@@ -71,6 +71,14 @@ void	event_select(t_env *e)
 		disable_seleted(e);
 }
 
+void	event_return(t_env *e)
+{
+	// j'ai ma liste avec mes element selectionner
+	// je commence par reinitiliser le termios
+	// j'affiche les element selectionner
+	// je termine le programme en liberant mon espace allouer
+}
+
 int 	event_gesture(t_env *e, char *s)
 {
 	if (s[0] == 'd')
@@ -84,5 +92,7 @@ int 	event_gesture(t_env *e, char *s)
 		event_right(e);
 	if (s[0] == 'p')
 		event_select(e);
+	if (s[0] == 'l')
+		event_return(e);
 	return (0);
 }

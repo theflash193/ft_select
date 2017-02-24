@@ -48,16 +48,19 @@ int	set_terminal(t_env *e)
 	return(0);
 }
 
-void	reset_terminal(t_env *e)
+void	reset_terminal(void)
 {
+	t_env *e;
+
+	e = singleton();
 	clear_window(e);
 	normal_cursor();
-	clear_env(e);
 	if (tcsetattr(0, 0, e->default_termios) == -1)
 		putendl_fd("fail to connect termios", 1);
+	free_singleton();
 }
 
-int	get_terminal_dimension(t_env *e)
+int		get_terminal_dimension(t_env *e)
 {
 	struct winsize win_size;
 
@@ -68,7 +71,7 @@ int	get_terminal_dimension(t_env *e)
 	return (0);
 }
 
-int configuration_terminal(t_env *e)
+int 	configuration_terminal(t_env *e)
 {
 	refresh_window();
 	if (invisible_cursor() == -1)
@@ -76,7 +79,7 @@ int configuration_terminal(t_env *e)
 	return (0);
 }
 
-int	get_tty_name(t_env *e)
+int		get_tty_name(t_env *e)
 {
 	char	*tty_in_name;
 	char	*tty_out_name;

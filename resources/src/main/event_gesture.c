@@ -2,7 +2,7 @@
 
 void	event_quit(t_env *e)
 {
-	reset_terminal(e);
+	reset_terminal();
 }
 
 void	event_left(t_env *e)
@@ -126,7 +126,7 @@ int 	event_gesture(t_env *e, char *s)
 {
 	if (s[0] == 'd')
 	{
-		reset_terminal(e);
+		reset_terminal();
 		return (-1);
 	}
 	if (s[0] == 'w')

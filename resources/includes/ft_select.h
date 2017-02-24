@@ -61,10 +61,11 @@ int				sputchar(int c);
 
 /* termios */
 int 			configure_select_termios(t_env *e);
-void			reset_terminal(t_env *e);
+void			reset_terminal(void);
 int				get_terminal_dimension(t_env *e);
 int				configuration_terminal(t_env *e);
 int				get_tty_name(t_env *e);
+
 /* capacity */
 int				cp_string(char *id);
 int				underline_on(void);
@@ -91,10 +92,15 @@ void			cursor_prev(t_env *e);
 int				set_terminal(t_env *e);
 
 /* event_gesture */
-int			event_gesture(t_env *e, char *s);
-void	event_quit(t_env *e);
-void	event_left(t_env *e);
-void	event_right(t_env *e);
-void	event_select(t_env *e);
-t_clst	*find_next(t_clst *alst);
+int				event_gesture(t_env *e, char *s);
+void			event_quit(t_env *e);
+void			event_left(t_env *e);
+void			event_right(t_env *e);
+void			event_select(t_env *e);
+t_clst			*find_next(t_clst *alst);
+
+/* singleton */
+t_env 			*singleton(void);
+void			free_singleton(void);
+
 #endif

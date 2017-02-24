@@ -20,6 +20,7 @@
 # include <term.h>
 # include <termios.h>
 #include <sys/ioctl.h>
+#include <fcntl.h>
 # define SELECT(a) *(t_select *)(a)
 
 typedef struct	s_env
@@ -29,10 +30,11 @@ typedef struct	s_env
 	struct termios	*termios;
  	struct termios	*default_termios;
 	char			*term_type;
-
 	struct winsize	win_size;
 	unsigned short	line;
 	unsigned short	colonne;
+	int			tty_in;
+	int			tty_out;
 }				t_env;
 
 typedef struct	s_select
@@ -61,8 +63,8 @@ int				sputchar(int c);
 int 			configure_select_termios(t_env *e);
 void			reset_terminal(t_env *e);
 int				get_terminal_dimension(t_env *e);
-int				 configuration_terminal(t_env *e);
-
+int				configuration_terminal(t_env *e);
+int				get_tty_name(t_env *e);
 /* capacity */
 int				cp_string(char *id);
 int				underline_on(void);

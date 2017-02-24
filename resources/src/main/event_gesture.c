@@ -114,10 +114,6 @@ void	affichage_terminal(t_clst *cursor)
 
 void	event_return(t_env *e)
 {
-	// j'ai ma liste avec mes element selectionner
-	// je commence par reinitiliser le termios
-	// j'affiche les element selectionner
-	// je termine le programme en liberant mon espace allouer
 	clear_window(e);
 	normal_cursor();
 	clst_iter_custom(e->liste_selection, affichage_terminal, 1);

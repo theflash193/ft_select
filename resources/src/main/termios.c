@@ -32,7 +32,7 @@ int	set_terminal(t_env *e)
 
 	if (tcgetattr(0, &p) == -1)
 	{
-		putendl_fd("fail to get termios", 1);
+		putendl_fd("fail to get termios", e->tty_out);
 		return (-1);
 	}
 	if ((e->default_termios = (struct termios *)malloc(sizeof(struct termios))) == NULL)
@@ -72,6 +72,23 @@ int configuration_terminal(t_env *e)
 {
 	refresh_window();
 	if (invisible_cursor() == -1)
+		return (-1);
+	return (0);
+}
+
+int	get_tty_name(t_env *e)
+{
+	char	*tty_in_name;
+	char	*tty_out_name;
+
+	if (isatty(0) == 0 || isatty(1) == 0)
+		return (-1);
+	if ((tty_in_name = ttyname(0)) == NULL || (tty_out_name = ttyname(1)) == NULL)
+		return (-1);
+	if ((tty_in_name = ttyname(0)) == NULL || (tty_out_name = ttyname(1)) == NULL)
+		return (-1);
+	if ((e->tty_out = open(tty_out_name, O_WRONLY)) < -1 ||
+		(e->tty_in = open(tty_in_name, O_WRONLY)) < -1)
 		return (-1);
 	return (0);
 }

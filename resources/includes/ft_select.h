@@ -70,7 +70,7 @@ int				get_tty_name(t_env *e);
 int				cp_string(char *id);
 int				underline_on(void);
 int				underline_off(void);
-void			clear_window(t_env *e);
+void			clear_window(void);
 int				invisible_cursor(void);
 int				normal_cursor(void);
 void			refresh_window(void);

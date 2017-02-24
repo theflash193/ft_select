@@ -114,7 +114,7 @@ void	affichage_terminal(t_clst *cursor)
 
 void	event_return(t_env *e)
 {
-	clear_window(e);
+	clear_window();
 	normal_cursor();
 	clst_iter_custom(e->liste_selection, affichage_terminal, 1);
 	if (tcsetattr(0, 0, e->default_termios) == -1)

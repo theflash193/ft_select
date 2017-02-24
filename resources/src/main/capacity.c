@@ -2,12 +2,14 @@
 
 int	cp_string(char *id)
 {
-	char *str;
+	t_env	*e;
+	char	*str;
 
+	e = singleton();
 	if ((str = tgetstr(id, NULL)) == NULL)
 		return (-1);
 	else
-		tputs(str, 1, sputchar);
+		tputs(str, e->tty_out, sputchar);
 	return (0);
 }
 
@@ -45,12 +47,15 @@ void	reverse_video()
 {
 	cp_string("mr");
 }
-void	clear_window(t_env *e)
+
+void	clear_window()
 {
+	t_env	*e;
 	unsigned short i;
 
 	i = 0;
+	e = singleton();
 	refresh_window();
 	while (i++ < e->line)
-		cp_string("al");
+		cp_string("adl");
 }

@@ -9,7 +9,7 @@ int	cp_string(char *id)
 	if ((str = tgetstr(id, NULL)) == NULL)
 		return (-1);
 	else
-		tputs(str, e->tty_out, sputchar);
+	  ft_putstr_fd(str, e->tty_out);
 	return (0);
 }
 
@@ -57,5 +57,5 @@ void	clear_window()
 	e = singleton();
 	refresh_window();
 	while (i++ < e->line)
-		cp_string("adl");
+		cp_string("dl");
 }

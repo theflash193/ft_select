@@ -44,7 +44,6 @@ int	set_terminal(t_env *e)
 	p.c_cc[VTIME] = 0;
 	if (tcsetattr(0, TCSADRAIN, &p) == -1)
 		return (-1);
-	ft_memcpy(e->termios, &p, sizeof(struct termios));
 	return(0);
 }
 
@@ -75,23 +74,27 @@ int 	configuration_terminal(t_env *e)
 {
 	refresh_window();
 	if (invisible_cursor() == -1)
-		return (-1);
+	  return (-1);
 	return (0);
 }
 
 int		get_tty_name(t_env *e)
 {
-	char	*tty_in_name;
 	char	*tty_out_name;
+	int	fd;
 
-	if (isatty(0) == 0 || isatty(1) == 0)
-		return (-1);
-	if ((tty_in_name = ttyname(0)) == NULL || (tty_out_name = ttyname(1)) == NULL)
-		return (-1);
-	if ((tty_in_name = ttyname(0)) == NULL || (tty_out_name = ttyname(1)) == NULL)
-		return (-1);
-	if ((e->tty_out = open(tty_out_name, O_WRONLY)) < -1 ||
-		(e->tty_in = open(tty_in_name, O_WRONLY)) < -1)
-		return (-1);
+	tty_out_name = NULL;
+	if ((tty_out_name = ttyname(0)) == NULL)
+	{
+	    reset_terminal();
+	    ft_putendl_fd("ttyname fail", 2);
+	    exit(0);
+	 }
+	if ((e->tty_out = open(tty_out_name, O_WRONLY)) < -1)
+	{
+	    reset_terminal();
+	    ft_putendl_fd("open fail", 2);
+	    exit(0);
+	}
 	return (0);
 }

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_select.h"
-
+#include <fcntl.h>
 void	putstr_fd(const char *s, int fd)
 {
 	write(fd, s, ft_strlen(s));
@@ -45,7 +45,10 @@ int main(int ac, char **av)
 		return (0);
 	e = singleton();
 	if (set_terminal(e) == -1 || configuration_terminal(e) || get_tty_name(e) == -1)
+	{
+		reset_terminal();
 		return (0);
+	}
 	parser(e, ac, av);
 	if (get_terminal_dimension(e) == -1)
 		reset_terminal();

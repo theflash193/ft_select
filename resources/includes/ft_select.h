@@ -21,6 +21,8 @@
 # include <termios.h>
 #include <sys/ioctl.h>
 #include <fcntl.h>
+#include <signal.h>
+
 # define SELECT(a) *(t_select *)(a)
 
 typedef struct	s_env
@@ -35,6 +37,7 @@ typedef struct	s_env
 	unsigned short	colonne;
 	int			tty_in;
 	int			tty_out;
+  size_t				max_len;
 }				t_env;
 
 typedef struct	s_select
@@ -42,6 +45,7 @@ typedef struct	s_select
 	char		*content;
 	int			current;
 	int			selected;
+  size_t			len;
 }				t_select;
 
 /* parser */
@@ -84,8 +88,8 @@ void			loop(t_env *e);
 
 void			affichage_element(t_select *elem);
 void			affichage_selection(t_env *e);
-
-
+void			calcul_max(t_clst *elem);
+void			update_maxlen(void);
 void			cursor_next(t_env *e);
 void			cursor_prev(t_env *e);
 

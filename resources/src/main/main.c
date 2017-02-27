@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_select.h"
-#include <fcntl.h>
+
 void	putstr_fd(const char *s, int fd)
 {
 	write(fd, s, ft_strlen(s));
@@ -54,4 +54,18 @@ int main(int ac, char **av)
 		reset_terminal();
 	loop(e);
 	return (0);
-}
+	}
+
+ /*int main()
+{
+	int buff;
+	t_env	*e;
+
+		e = singleton(); 
+	while (42)
+	{
+	  read(0, &buff, sizeof(int));
+		printf("[%d]\n", buff);
+	}
+	return (0);
+}*/

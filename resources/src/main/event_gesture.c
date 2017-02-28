@@ -156,7 +156,7 @@ int 	event_gesture(t_env *e, char *s)
 		event_return(e);
 		return (-1);
 	}
-	if (s[0] == 127 && s[1] == 0 && s[2] == 0)
+	if ((s[0] == 127 && s[1] == 0 && s[2] == 0) || (s[0] == 27 && s[1] == 91 && s[2] == 51))
 	{
 		event_delete(e);
 		if (e->nb_arg == 0)

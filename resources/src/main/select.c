@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 19:16:36 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/02/28 22:24:36 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/02/28 22:29:28 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,6 @@ void		ft_spaces_characteristics(int nb, int fd)
 	}
 }
 
-// j'affiche autant d'argument possible par ligne
-// Pour chaque ligne j'affiche tous les argument possible puis je passe a la ligne suivante
-
-// lors de l'affichage apres avoir afficher mes argument je mets des espacement a droite
-
-// je connais le nombre d'argument que je peux afficher par ligne
-	// si je n'ai pas assez de ligne j'affiche un message d'erreur
-// je un variable conteur qui indique si j'ai atteint
-//
-
 int		calcul_argument_ligne(t_env *e)
 {
 	int nombre_ligne_necessaire;
@@ -80,14 +70,6 @@ int		calcul_argument_ligne(t_env *e)
 		return (0);
 	return ((e->max_len + 4 <= e->colonne) && (nombre_ligne_necessaire <= e->line));
 }
-
-//
-// void	affichage_selection(t_env *e)
-// {
-// 	update_maxlen();
-// 	clst_iter(e->liste_selection, print_data);
-// 	putendl_fd("", e->tty_out);
-// }
 
 void	affichage_selection(t_env *e)
 {

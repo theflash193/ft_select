@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 15:27:27 by grass-kw          #+#    #+#             */
-/*   Updated: 2016/09/18 09:54:05 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/02/28 21:59:12 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 	return (0);
 }
-
 
 int	putendl_fd(char const *s, int fd)
 {

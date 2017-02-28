@@ -84,7 +84,7 @@ void	event_delete(t_env *e)
 	tmp = (t_select *)delete->next->content;
 	tmp->current = 1;
 	clst_del_elem(&delete, delete_selection);
-	e->nb_arg--;
+	e->nombre_argument--;
 }
 
 void	clst_iter_custom(t_clst *alst, void (*f)(t_clst *), int fd)
@@ -159,7 +159,7 @@ int 	event_gesture(t_env *e, char *s)
 	if ((s[0] == 127 && s[1] == 0 && s[2] == 0) || (s[0] == 27 && s[1] == 91 && s[2] == 51))
 	{
 		event_delete(e);
-		if (e->nb_arg == 0)
+		if (e->nombre_argument == 0)
 		  {
 		 	reset_terminal();
 			return (-1);

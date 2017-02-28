@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:53:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/02/28 19:06:51 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/02/28 20:25:36 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ typedef struct	s_env
 	unsigned short	colonne;
 	int			tty_in;
 	int			tty_out;
-  size_t				max_len;
-  int			nb_arg;
+	size_t		max_len;
+	int			nombre_argument;
+	int			argument_par_ligne;
 }				t_env;
 
 typedef struct	s_select
@@ -93,8 +94,10 @@ void			calcul_max(t_clst *elem);
 void			update_maxlen(void);
 void			cursor_next(t_env *e);
 void			cursor_prev(t_env *e);
-void			ft_spaces_characteristics(int nb);
+void			ft_spaces_characteristics(int nb, int fd);
 int				set_terminal(t_env *e);
+void			affichage_padding(t_clst *alst, void (*f)(t_clst *), t_env *e);
+void			message_taille_insufissante(t_env *e);
 
 /* event_gesture */
 int				event_gesture(t_env *e, char *s);

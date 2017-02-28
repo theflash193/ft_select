@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/18 05:52:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/02/28 18:56:29 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/02/28 19:43:29 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	parser(t_env *e, int ac, char **av)
 	int		i;
 
 	i = 1;
-	e->nb_arg = ac - 1;
+	e->nombre_argument = ac - 1;
 	while (i < ac)
 	{
 		init_select(av[i], &data);

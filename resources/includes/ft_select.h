@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:53:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/02/28 22:49:16 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/02/28 23:26:55 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,4 +119,6 @@ void			pause_programme(int i);
 void			reprise_programme(int i);
 void			signal_handler(void);
 
+void			event_select(t_env *e);
+void			event_delete(t_env *e);
 #endif

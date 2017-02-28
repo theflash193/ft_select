@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/18 05:52:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/02/28 19:43:29 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/02/28 23:22:32 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ static void	init_select(char *content, t_select *elem)
 	elem->len = ft_strlen(content);
 }
 
-static void setup_select(int i, t_select *elem)
+static void	setup_select(int i, t_select *elem)
 {
 	if (i == 1)
 		elem->current = 1;
 }
 
-void	parser(t_env *e, int ac, char **av)
+void		parser(t_env *e, int ac, char **av)
 {
 	t_select	data;
 	t_clst		*elem;
-	int		i;
+	int			i;
 
 	i = 1;
 	e->nombre_argument = ac - 1;

@@ -28,9 +28,10 @@ void	parser(t_env *e, int ac, char **av)
 {
 	t_select	data;
 	t_clst		*elem;
-	int			i;
+	int		i;
 
 	i = 1;
+	e->nb_arg = ac - 1;
 	while (i < ac)
 	{
 		init_select(av[i], &data);

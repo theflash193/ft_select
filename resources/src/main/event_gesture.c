@@ -71,6 +71,22 @@ void	event_select(t_env *e)
 		disable_seleted(e);
 }
 
+
+void	event_delete(t_env *e)
+{
+	t_clst		*delete;
+	t_select	*tmp;
+
+	if (e->current_elem == e->liste_selection)
+		e->liste_selection = e->liste_selection->next;
+	delete = e->current_elem;
+  	e->current_elem = delete->next;
+	tmp = (t_select *)delete->next->content;
+	tmp->current = 1;
+	clst_del_elem(&delete, delete_selection);
+	e->nb_arg--;
+}
+
 void	clst_iter_custom(t_clst *alst, void (*f)(t_clst *), int fd)
 {
 	t_clst *cursor;
@@ -139,6 +155,15 @@ int 	event_gesture(t_env *e, char *s)
 	{
 		event_return(e);
 		return (-1);
+	}
+	if (s[0] == 'o')
+	{
+		event_delete(e);
+		if (e->nb_arg == 0)
+		  {
+		 	reset_terminal();
+			return (-1);
+		  }
 	}
 	return (0);
 }

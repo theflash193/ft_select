@@ -38,6 +38,7 @@ typedef struct	s_env
 	int			tty_in;
 	int			tty_out;
   size_t				max_len;
+  int			nb_arg;
 }				t_env;
 
 typedef struct	s_select
@@ -107,4 +108,5 @@ t_clst			*find_next(t_clst *alst);
 t_env 			*singleton(void);
 void			free_singleton(void);
 
+void			clst_del_elem(t_clst **alst, void (*del)(void *, size_t));
 #endif

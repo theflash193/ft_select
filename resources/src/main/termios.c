@@ -56,7 +56,7 @@ void	reset_terminal(void)
 	normal_cursor();
 	if (tcsetattr(0, 0, e->default_termios) == -1)
 		putendl_fd("fail to connect termios", 1);
-	free_singleton();
+	//free_singleton();
 }
 
 int		get_terminal_dimension(t_env *e)

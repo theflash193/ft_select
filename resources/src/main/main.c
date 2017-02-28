@@ -56,16 +56,21 @@ int main(int ac, char **av)
 	return (0);
 	}
 
- /*int main()
+ /* 
+ int main()
 {
-	int buff;
+	char	buff[4] ;
 	t_env	*e;
 
 		e = singleton(); 
+		set_terminal(e);
+		configuration_terminal(e);
 	while (42)
 	{
-	  read(0, &buff, sizeof(int));
-		printf("[%d]\n", buff);
+	  read(0, &buff, 3);
+	  printf("[%d, %d, %d]\n", buff[0], buff[1], buff[2]);
+	  ft_bzero(&buff, 3);
 	}
 	return (0);
-}*/
+	}*/
+

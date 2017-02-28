@@ -21,8 +21,8 @@ void	loop(t_env *e)
 		clear_window();//clear_window
 		affichage_selection(e);//affichage de la liste
 		//attente lecture utilisateur
+		ft_bzero(&buff, 4);
 		read(0, &buff, 3);
-		buff[3] = '\0';
 		if (event_gesture(e, buff) == -1)
 			break ;
 	//gestion evenement touche utilisateur

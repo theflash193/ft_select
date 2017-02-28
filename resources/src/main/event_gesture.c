@@ -140,23 +140,23 @@ void	event_return(t_env *e)
 
 int 	event_gesture(t_env *e, char *s)
 {
-	if (s[0] == 'd')
+	if (s[0] == 27 && s[1] == 0 && s[2] == 0)
 	{
 		reset_terminal();
 		return (-1);
 	}
-	if (s[0] == 'w')
+	if (s[0] == 27 && s[1] == 91 && s[2] == 68)
 		event_left(e);
-	if (s[0] == 's')
+	if (s[0] == 27 && s[1] == 91 && s[2] == 67)
 		event_right(e);
-	if (s[0] == 'p')
+	if (s[0] == 32 && s[1] == 0 && s[2] == 0)
 		event_select(e);
-	if (s[0] == 'l')
+	if (s[0] == 10 && s[1] == 0 && s[2] == 0)
 	{
 		event_return(e);
 		return (-1);
 	}
-	if (s[0] == 'o')
+	if (s[0] == 127 && s[1] == 0 && s[2] == 0)
 	{
 		event_delete(e);
 		if (e->nb_arg == 0)

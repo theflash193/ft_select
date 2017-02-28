@@ -19,6 +19,7 @@ void	affichage_element(t_select *elem)
 
 void	affichage_selection(t_env *e)
 {
+	update_maxlen();
 	clst_iter(e->liste_selection, print_data);
 	putendl_fd("", e->tty_out);
 }
@@ -38,5 +39,18 @@ void			update_maxlen(void)
 	t_env *e;
 
 	e = singleton();
+	e->max_len = 0;
 	clst_iter(e->liste_selection, calcul_max);
+}
+
+void		ft_spaces_characteristics(int nb)
+{
+	int		i;
+
+	i = 0;
+	while (i < nb)
+	{
+		ft_putchar(' ');
+		i++;
+	}
 }

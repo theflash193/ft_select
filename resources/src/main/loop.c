@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/18 07:19:37 by grass-kw          #+#    #+#             */
-/*   Updated: 2016/09/18 07:20:17 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/02/28 19:00:51 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	loop(t_env *e)
 	{
 		clear_window();//clear_window
 		affichage_selection(e);//affichage de la liste
+		update_maxlen();
+		printf("max len %zu\n", e->max_len);
 		//attente lecture utilisateur
 		ft_bzero(&buff, 4);
 		read(0, &buff, 3);

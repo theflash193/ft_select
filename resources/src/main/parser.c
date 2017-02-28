@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/18 05:52:21 by grass-kw          #+#    #+#             */
-/*   Updated: 2016/09/18 07:06:23 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/02/28 18:56:29 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	init_select(char *content, t_select *elem)
 {
 	ft_bzero(elem, sizeof(t_select));
 	elem->content = ft_strdup(content);
+	elem->len = ft_strlen(content);
 }
 
 static void setup_select(int i, t_select *elem)
@@ -41,4 +42,3 @@ void	parser(t_env *e, int ac, char **av)
 	}
 	e->current_elem = e->liste_selection;
 }
-

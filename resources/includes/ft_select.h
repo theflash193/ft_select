@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:53:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/02/28 18:51:33 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/02/28 19:06:51 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void			calcul_max(t_clst *elem);
 void			update_maxlen(void);
 void			cursor_next(t_env *e);
 void			cursor_prev(t_env *e);
-
+void			ft_spaces_characteristics(int nb);
 int				set_terminal(t_env *e);
 
 /* event_gesture */

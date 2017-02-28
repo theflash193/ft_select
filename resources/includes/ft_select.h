@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 10:53:04 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/02/28 20:25:36 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/02/28 22:49:16 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,11 @@ t_env 			*singleton(void);
 void			free_singleton(void);
 
 void			clst_del_elem(t_clst **alst, void (*del)(void *, size_t));
+
+/* signal */
+void			changement_taille_fenetre(int i);
+void			pause_programme(int i);
+void			reprise_programme(int i);
+void			signal_handler(void);
+
 #endif

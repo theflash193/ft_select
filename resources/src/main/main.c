@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 15:27:27 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/02/28 21:59:12 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/02/28 23:16:22 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int main(int ac, char **av)
 	parser(e, ac, av);
 	if (get_terminal_dimension(e) == -1)
 		reset_terminal();
+	signal_handler();
 	loop(e);
 	return (0);
 }

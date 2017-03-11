@@ -81,7 +81,7 @@ void			reset_terminal(void);
 int				get_terminal_dimension(t_env *e);
 int				configuration_terminal(t_env *e);
 int				get_tty_name(t_env *e);
-
+int				get_terminal_dimension(t_env *e);
 /* capacity */
 int				cp_string(char *id);
 int				underline_on(void);

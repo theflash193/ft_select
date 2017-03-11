@@ -124,5 +124,4 @@ void	affichage_padding(t_clst *alst, void (*f)(t_clst *), t_env *e)
 		f(cursor);
 		i++;
 	}
-	//	ft_putchar_fd('\n', e->tty_out);
 }

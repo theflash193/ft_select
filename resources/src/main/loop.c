@@ -20,7 +20,6 @@ void	loop(t_env *e)
 	{
 		clear_window();
 		affichage_selection(e);
-		move_cursor(5, 0);
 		update_maxlen();
 		ft_bzero(&buff, 4);
 		read(0, &buff, 3);

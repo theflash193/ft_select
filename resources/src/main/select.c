@@ -66,8 +66,6 @@ int		configuration_padding_selection(t_env *e)
 	p.nombre_colonne = 1;
   	p.nombre_colonne += e->nombre_argument / e->line;
 	p.taille_colonne = p.nombre_colonne * (e->max_len + 2);
-	//e->argument_par_ligne = e->colonne / p.element_par_colonne;
-	//	printf("%d %d\n", e->nombre_argument, e->line);
       	//printf("[nb col %d] [elem pc%d] [argument %d]\n", p.nombre_colonne, p.element_par_colonne, e->argument_par_ligne);
 	if (p.taille_colonne > e->colonne)
 		return (0);

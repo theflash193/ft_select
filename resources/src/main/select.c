@@ -59,22 +59,26 @@ void		ft_spaces_characteristics(int nb, int fd)
 	}
 }
 
-int		calcul_argument_ligne(t_env *e)
+int		configuration_padding_selection(t_env *e)
 {
-	int nombre_ligne_necessaire;
+	t_padding	p;
 
-	e->argument_par_ligne = e->colonne / e->max_len + 4;
-	nombre_ligne_necessaire = (e->line * e->nombre_argument) / e->argument_par_ligne;
-	printf("[e->argument_par_ligne %d] [e->line %hu] [e->nombre_argument %d] [max len %zu]\n", e->argument_par_ligne, e->line, e->nombre_argument, e->max_len);
-	if (e->max_len + 4 > e->colonne)
+	p.nombre_colonne = 1;
+  	p.nombre_colonne += e->nombre_argument / e->line;
+	p.taille_colonne = p.nombre_colonne * (e->max_len + 2);
+	//e->argument_par_ligne = e->colonne / p.element_par_colonne;
+	//	printf("%d %d\n", e->nombre_argument, e->line);
+      	//printf("[nb col %d] [elem pc%d] [argument %d]\n", p.nombre_colonne, p.element_par_colonne, e->argument_par_ligne);
+	if (p.taille_colonne > e->colonne)
 		return (0);
-	return ((e->max_len + 4 <= e->colonne) && (nombre_ligne_necessaire <= e->line));
+	e->padding = p;
+	return (1);
 }
 
 void	affichage_selection(t_env *e)
 {
 	update_maxlen();
-	if ((calcul_argument_ligne(e)) == 0)
+	if ((configuration_padding_selection(e)) == 0)
 		message_taille_insufissante(e);
 	else
 		affichage_padding(e->liste_selection, print_data, e);
@@ -89,30 +93,38 @@ void	message_taille_insufissante(t_env *e)
 		ft_putstr_fd("taille ecran insufisant", e->tty_out);
 }
 
+void   	positionnement_cursor(t_env *e, int index, int colonne_courante)
+{
+	e->padding.position_ligne_cursor = index % e->line;
+	e->padding.position_colonne_cursor = (colonne_courante) * (e->max_len + 2);
+	move_cursor(e->padding.position_ligne_cursor, e->padding.position_colonne_cursor);
+}
+
 void	affichage_padding(t_clst *alst, void (*f)(t_clst *), t_env *e)
 {
 	t_clst		*cursor;
 	t_select	*elem;
-	int			i;
+	int		i;
+	int	j;
 
 	i = 0;
+	j = 0;
 	cursor = alst;
 	if (cursor == NULL)
 		return ;
+	positionnement_cursor(e, i, j);
 	elem = (t_select *)cursor->content;
 	f(cursor);
+	i++;
 	while (cursor->next != alst && cursor != NULL)
 	{
-		if (i == e->argument_par_ligne)
-			i = 0;
-		if (i != 0 || i != e->argument_par_ligne)
-			ft_putchar_fd(' ', e->tty_out);
+		if (i % e->line == 0)
+			j++;
 		cursor = cursor->next;
+	       	positionnement_cursor(e, i, j);
 		elem = (t_select *)cursor->content;
 		f(cursor);
-		if (i == e->argument_par_ligne)
-			ft_putchar_fd('\n', e->tty_out);
 		i++;
 	}
-	ft_putchar_fd('\n', e->tty_out);
+	//	ft_putchar_fd('\n', e->tty_out);
 }

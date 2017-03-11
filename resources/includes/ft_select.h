@@ -25,6 +25,15 @@
 
 # define SELECT(a) *(t_select *)(a)
 
+typedef struct	s_padding
+{
+	int	nombre_colonne;
+	int	taille_colonne;
+	int	position_ligne_cursor;
+	int	position_colonne_cursor;
+}				t_padding;
+
+
 typedef struct	s_env
 {
 	t_clst			*liste_selection;
@@ -33,13 +42,14 @@ typedef struct	s_env
  	struct termios	*default_termios;
 	char			*term_type;
 	struct winsize	win_size;
-	unsigned short	line;
-	unsigned short	colonne;
+	int	line;
+	int	colonne;
 	int			tty_in;
 	int			tty_out;
 	size_t		max_len;
 	int			nombre_argument;
 	int			argument_par_ligne;
+	t_padding		padding;
 }				t_env;
 
 typedef struct	s_select
@@ -82,7 +92,7 @@ int				normal_cursor(void);
 void			refresh_window(void);
 void			reverse_video(void);
 void			cancel_mode(void);
-
+void			move_cursor(int x, int y);
 /* loop */
 void			loop(t_env *e);
 
@@ -98,7 +108,7 @@ void			ft_spaces_characteristics(int nb, int fd);
 int				set_terminal(t_env *e);
 void			affichage_padding(t_clst *alst, void (*f)(t_clst *), t_env *e);
 void			message_taille_insufissante(t_env *e);
-
+int			configuration_padding_selection(t_env *e);
 /* event_gesture */
 int				event_gesture(t_env *e, char *s);
 void			event_quit(t_env *e);
@@ -106,6 +116,9 @@ void			event_left(t_env *e);
 void			event_right(t_env *e);
 void			event_select(t_env *e);
 t_clst			*find_next(t_clst *alst);
+
+void			disable_seleted(t_env *e);
+void			selected(t_env *e);
 
 /* singleton */
 t_env 			*singleton(void);

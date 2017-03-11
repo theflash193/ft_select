@@ -59,3 +59,13 @@ void	clear_window()
 	while (i++ < e->line)
 		cp_string("dl");
 }
+
+void	move_cursor(int x, int y)
+{
+  char *str;
+  t_env	*e;
+
+  e = singleton();
+  str = tgetstr("cm", NULL);
+  ft_putstr_fd(tgoto(str, y, x), e->tty_out);
+}

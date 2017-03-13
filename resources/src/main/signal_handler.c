@@ -26,12 +26,17 @@ void	changement_taille_fenetre(int i)
 void	pause_programme(int i)
 {
 	t_env *e;
+	char cp[1];
+
 
 	e = singleton();
+	cp[0] =  e->default_termios->c_cc[VSUSP];
 	clear_window();
 	normal_cursor();
 	if (tcsetattr(0, 0, e->default_termios) == -1)
 		putendl_fd("fail to connect termios", e->tty_out);
+	signal(SIGTSTP, SIG_DFL);
+	ioctl(0, TIOCSTI, cp);
 }
 
 void	reprise_programme(int i)
@@ -39,8 +44,10 @@ void	reprise_programme(int i)
 	t_env *e;
 
 	e = singleton();
-	if (tcsetattr(0, 0, e->termios) == -1)
-		putendl_fd("fail to connect termios", e->tty_out);
+	set_terminal(e);
+	configuration_terminal(e);
+	update_maxlen();
+	affichage_selection(e);
 }
 
 void	signal_handler(void)

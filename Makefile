@@ -6,7 +6,7 @@
 #    By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/10 11:39:32 by grass-kw          #+#    #+#              #
-#    Updated: 2016/09/18 09:27:02 by grass-kw         ###   ########.fr        #
+#    Updated: 2017/03/14 16:11:28 by grass-kw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,22 @@ DIRCLST			:= resources/clst
 
 DIRMAIN 		:= $(DIRSRC)/main
 DIRCOREUTILS 	:= $(DIRSRC)/coreutils
+DIRPARSER 		:= $(DIRSRC)/parser
+DIREVENT 		:= $(DIRSRC)/event
+DIRSELECTION 	:= $(DIRSRC)/selection
+DIRSIGNAL 		:= $(DIRSRC)/signal
+DIRTERMINAL 	:= $(DIRSRC)/terminal
 
 ### FILES ###
 HEAD	:= $(DIRINC)/$(HEADER).h
 
 include $(DIRMAIN)/sources.mk
 include $(DIRCOREUTILS)/sources.mk
+include $(DIRPARSER)/sources.mk
+include $(DIREVENT)/sources.mk
+include $(DIRSELECTION)/sources.mk
+include $(DIRSIGNAL)/sources.mk
+include $(DIRTERMINAL)/sources.mk
 
 POBJ	:= $(addprefix $(DIROBJ)/, $(OBJ))
 

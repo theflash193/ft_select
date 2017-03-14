@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 19:16:36 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/02/28 23:29:59 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/03/14 19:28:04 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,26 +47,13 @@ void			update_maxlen(void)
 	clst_iter(e->liste_selection, calcul_max);
 }
 
-void		ft_spaces_characteristics(int nb, int fd)
-{
-	int		i;
-
-	i = 0;
-	while (i < nb)
-	{
-		ft_putchar_fd(' ', fd);
-		i++;
-	}
-}
-
 int		configuration_padding_selection(t_env *e)
 {
 	t_padding	p;
 
 	p.nombre_colonne = 1;
-  	p.nombre_colonne += e->nombre_argument / e->line;
+	p.nombre_colonne += e->nombre_argument / e->line;
 	p.taille_colonne = p.nombre_colonne * (e->max_len + 2);
-      	//printf("[nb col %d] [elem pc%d] [argument %d]\n", p.nombre_colonne, p.element_par_colonne, e->argument_par_ligne);
 	if (p.taille_colonne > e->colonne)
 		return (0);
 	e->padding = p;

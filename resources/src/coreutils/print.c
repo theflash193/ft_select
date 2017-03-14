@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   singleton.c                                        :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/14 19:17:33 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/03/14 19:19:12 by grass-kw         ###   ########.fr       */
+/*   Created: 2017/03/14 19:17:10 by grass-kw          #+#    #+#             */
+/*   Updated: 2017/03/14 19:17:18 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-t_env	*singleton(void)
+void	putstr_fd(const char *s, int fd)
 {
-	static t_env *e = NULL;
-
-	if (e == NULL)
-	{
-		e = (t_env *)malloc(sizeof(t_env));
-		ft_bzero(e, sizeof(t_env));
-	}
-	return (e);
+	write(fd, s, ft_strlen(s));
 }
 
-void	free_singleton(void)
+int		putchar_fd(char c, int fd)
 {
-	t_env *e;
+	write(fd, &c, 1);
+	return (0);
+}
 
-	e = singleton();
-	if (e->liste_selection != NULL)
-		clst_del(&(e->liste_selection), delete_selection);
-	ft_bzero(e, sizeof(t_env));
-	ft_memdel((void *)&e);
+int		putendl_fd(char const *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+	return (0);
+}
+
+int		sputchar(int c)
+{
+	write(1, &c, 1);
+	return (0);
 }

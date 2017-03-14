@@ -1,26 +1,6 @@
 #include "ft_select.h"
 
-int 	configure_select_termios(t_env *e)
-{
-	e->termios = (struct termios *)malloc(sizeof(struct termios));
-	if (tcgetattr(0, e->termios) == -1)
-	{
-	  putendl_fd("fail to get termios", 1);
-		return (-1);
-	}
-	if ((e->default_termios = (struct termios *)malloc(sizeof(struct termios))) == NULL)
-	  return (-1);
-	ft_memcpy(e->default_termios, e->termios, sizeof(struct termios));
-	e->termios->c_lflag &= ~(ICANON);
-	e->termios->c_lflag &= ~(ECHO);
-	e->termios->c_cc[VMIN] = 1;
-	e->termios->c_cc[VTIME] = 0;
-	if (tcsetattr(0, TCSADRAIN, e->termios) == -1)
-		return (-1);
-	return (0);
-}
-
-int	set_terminal(t_env *e)
+int 	set_terminal(t_env *e)
 {
 	struct termios p;
 

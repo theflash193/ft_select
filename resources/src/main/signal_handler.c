@@ -48,6 +48,7 @@ void	reprise_programme(int i)
 	configuration_terminal(e);
 	update_maxlen();
 	affichage_selection(e);
+	signal(SIGTSTP, pause_programme);
 }
 
 void	signal_handler(void)

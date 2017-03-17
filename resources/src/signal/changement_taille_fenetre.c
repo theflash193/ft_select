@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 16:02:50 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/03/17 16:02:50 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/03/17 18:53:51 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	changement_taille_fenetre(int i)
 	t_env *e;
 
 	e = singleton();
-	get_terminal_dimension(e);
 	clear_window();
-	update_maxlen();
+	get_terminal_dimension(e);
 	affichage_selection(e);
 }

@@ -115,6 +115,7 @@ void			event_quit(t_env *e);
 void			event_left(t_env *e);
 void			event_right(t_env *e);
 void			event_select(t_env *e);
+void			event_return(t_env *e);
 t_clst			*find_next(t_clst *alst);
 
 void			disable_seleted(t_env *e);

@@ -28,7 +28,7 @@
 typedef struct	s_padding
 {
 	int	nombre_colonne;
-	int	element_par_colonne;
+	int	taille_colonne;
 	int	position_ligne_cursor;
 	int	position_colonne_cursor;
 }				t_padding;
@@ -42,8 +42,8 @@ typedef struct	s_env
  	struct termios	*default_termios;
 	char			*term_type;
 	struct winsize	win_size;
-	unsigned short	line;
-	unsigned short	colonne;
+	int	line;
+	int	colonne;
 	int			tty_in;
 	int			tty_out;
 	size_t		max_len;
@@ -81,7 +81,7 @@ void			reset_terminal(void);
 int				get_terminal_dimension(t_env *e);
 int				configuration_terminal(t_env *e);
 int				get_tty_name(t_env *e);
-
+int				get_terminal_dimension(t_env *e);
 /* capacity */
 int				cp_string(char *id);
 int				underline_on(void);

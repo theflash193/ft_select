@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   affichage_selection.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/17 16:09:49 by grass-kw          #+#    #+#             */
+/*   Updated: 2017/03/17 16:09:54 by grass-kw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_select.h"
 
-int		configuration_padding_selection(t_env *e)
+int			configuration_padding_selection(t_env *e)
 {
 	t_padding	p;
 

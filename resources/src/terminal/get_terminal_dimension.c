@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 15:57:49 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/03/17 15:57:56 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/03/17 15:59:26 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		get_terminal_dimension(t_env *e)
 {
-	struct	winsize win_size;
+	struct winsize	win_size;
 
 	if (ioctl(0, TIOCGSIZE, &win_size) == -1)
 		return (-1);

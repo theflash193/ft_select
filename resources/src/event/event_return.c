@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   event_return.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/17 16:11:48 by grass-kw          #+#    #+#             */
+/*   Updated: 2017/03/17 16:13:59 by grass-kw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_select.h"
 
 void	clst_iter_custom(t_clst *alst, void (*f)(t_clst *), int fd)
 {
 	t_clst		*cursor;
 	t_select	*elem;
-	int		retour_chariot;
+	int			retour_chariot;
 
 	retour_chariot = 0;
 	cursor = alst;

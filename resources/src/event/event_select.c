@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   event_select.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/17 16:10:18 by grass-kw          #+#    #+#             */
+/*   Updated: 2017/03/17 16:10:56 by grass-kw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_select.h"
 
 static t_clst	*find_next(t_clst *alst)
@@ -20,7 +32,7 @@ static t_clst	*find_next(t_clst *alst)
 	return (NULL);
 }
 
-static void	selected(t_env *e)
+static void		selected(t_env *e)
 {
 	t_select	*current;
 	t_select	*tmp;
@@ -37,7 +49,7 @@ static void	selected(t_env *e)
 	}
 }
 
-static void	disable_seleted(t_env *e)
+static void		disable_seleted(t_env *e)
 {
 	t_select	*current;
 
@@ -45,7 +57,7 @@ static void	disable_seleted(t_env *e)
 	current->selected = 0;
 }
 
-void	event_select(t_env *e)
+void			event_select(t_env *e)
 {
 	t_select	*current;
 

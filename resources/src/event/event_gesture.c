@@ -6,19 +6,22 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 16:18:19 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/03/14 16:18:22 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/03/17 16:21:02 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int 	event_gesture(t_env *e, char *s)
+int		quit(t_env *e, char *s)
+{
+	reset_terminal();
+	return (-1);
+}
+
+int		event_gesture(t_env *e, char *s)
 {
 	if (s[0] == 27 && s[1] == 0 && s[2] == 0)
-	{
-		reset_terminal();
-		return (-1);
-	}
+		return (quit(e, s));
 	if (s[0] == 27 && s[1] == 91 && s[2] == 68)
 		event_left(e);
 	if (s[0] == 27 && s[1] == 91 && s[2] == 67)
@@ -30,7 +33,8 @@ int 	event_gesture(t_env *e, char *s)
 		event_return(e);
 		return (-1);
 	}
-	if ((s[0] == 127 && s[1] == 0 && s[2] == 0) || (s[0] == 27 && s[1] == 91 && s[2] == 51))
+	if ((s[0] == 127 && s[1] == 0 && s[2] == 0) ||
+		(s[0] == 27 && s[1] == 91 && s[2] == 51))
 	{
 		event_delete(e);
 		if (e->nombre_argument == 0)

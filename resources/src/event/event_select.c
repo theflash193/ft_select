@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 16:10:18 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/03/17 16:10:56 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/03/17 16:17:10 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_clst	*find_next(t_clst *alst)
 {
-	t_clst 		*cursor;
+	t_clst		*cursor;
 	t_select	*elem;
 
 	cursor = alst;

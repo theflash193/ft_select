@@ -1,4 +1,4 @@
-MAIN	:= event_gesture.c event_tools.c \
+MAIN	:= event_gesture.c \
 	event_return.c event_right.c event_left.c event_quit.c event_select.c\
 	event_delete.c 
 OBJ		:= $(OBJ) $(MAIN:.c=.o)

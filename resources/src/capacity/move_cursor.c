@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 19:07:37 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/03/17 15:35:13 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/03/17 16:26:47 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	move_cursor(int x, int y)
 {
-	char *str;
+	char	*str;
 	t_env	*e;
 
 	e = singleton();

@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 16:18:19 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/03/17 16:21:02 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/03/17 16:25:46 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ int		event_gesture(t_env *e, char *s)
 	{
 		event_delete(e);
 		if (e->nombre_argument == 0)
-		  {
-		 	reset_terminal();
+		{
+			reset_terminal();
 			return (-1);
-		  }
+		}
 	}
 	return (0);
 }

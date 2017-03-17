@@ -6,7 +6,7 @@
 /*   By: grass-kw <grass-kw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 18:44:10 by grass-kw          #+#    #+#             */
-/*   Updated: 2017/03/14 18:44:38 by grass-kw         ###   ########.fr       */
+/*   Updated: 2017/03/17 16:27:45 by grass-kw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	cp_string(char *id)
 	if ((str = tgetstr(id, NULL)) == NULL)
 		return (-1);
 	else
-	  ft_putstr_fd(str, e->tty_out);
+		ft_putstr_fd(str, e->tty_out);
 	return (0);
 }

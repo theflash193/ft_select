@@ -22,9 +22,9 @@ int		event_gesture(t_env *e, char *s)
 {
 	if (s[0] == 27 && s[1] == 0 && s[2] == 0)
 		return (quit(e, s));
-	if (s[0] == 27 && s[1] == 91 && s[2] == 68)
+	if (s[0] == 27 && s[1] == 91 && s[2] == 65)
 		event_left(e);
-	if (s[0] == 27 && s[1] == 91 && s[2] == 67)
+	if (s[0] == 27 && s[1] == 91 && s[2] == 66)
 		event_right(e);
 	if (s[0] == 32 && s[1] == 0 && s[2] == 0)
 		event_select(e);

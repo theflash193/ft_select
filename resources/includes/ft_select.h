@@ -125,8 +125,8 @@ int						configuration_padding_selection(t_env *e);
 */
 int						event_gesture(t_env *e, char *s);
 void					event_quit(t_env *e);
-void					event_left(t_env *e);
-void					event_right(t_env *e);
+void					event_up(t_env *e);
+void					event_down(t_env *e);
 void					event_select(t_env *e);
 void					event_return(t_env *e);
 void					event_select(t_env *e);

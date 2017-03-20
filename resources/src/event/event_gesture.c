@@ -23,9 +23,9 @@ int		event_gesture(t_env *e, char *s)
 	if (s[0] == 27 && s[1] == 0 && s[2] == 0)
 		return (quit(e, s));
 	if (s[0] == 27 && s[1] == 91 && s[2] == 65)
-		event_left(e);
+		event_up(e);
 	if (s[0] == 27 && s[1] == 91 && s[2] == 66)
-		event_right(e);
+		event_down(e);
 	if (s[0] == 32 && s[1] == 0 && s[2] == 0)
 		event_select(e);
 	if (s[0] == 10 && s[1] == 0 && s[2] == 0)
